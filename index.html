@@ -714,7 +714,7 @@ function renderList(id,arr){
 }
 function render(){
  parkHours.textContent=state.hours.park;cableHours.textContent=state.hours.cable;waterHours.textContent=state.hours.water;
- document.querySelector("#zones .zone:last-child .note").innerHTML="<b>Water Park:</b> "+state.waterNote;
+ const legacyWaterNote=document.querySelector("#zones .zone:last-child .note");if(legacyWaterNote)legacyWaterNote.innerHTML="<b>Water Park:</b> "+state.waterNote;
  renderList("fairyList",state.zones.fairy);renderList("festiveList",state.zones.festive);renderList("zooList",state.zones.zoo);renderList("gardenList",state.zones.garden);renderList("seaList",state.zones.sea);renderList("waterList",state.zones.water);
  showsGrid.innerHTML=state.shows.map(x=>`<div class="card"><h3>${x.name}</h3><div class="stat">${x.time}</div><p class="muted">${x.location}</p></div>`).join("");
  facilityGrid.innerHTML=state.facilities.map(x=>`<div class="card"><h3>${x.name}</h3><p class="muted">${x.text}</p></div>`).join("");
